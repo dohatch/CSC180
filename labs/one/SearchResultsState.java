@@ -4,6 +4,7 @@ public class SearchResultsState implements Event {
 	Auction [] results;
 	String username;
 	String criteria;
+	
 		
 	SearchResultsState(String username, String criteria) {
 		this.username = username;
@@ -33,8 +34,12 @@ public class SearchResultsState implements Event {
 		System.out.println("===          Search Results          ===");
 		System.out.println("========================================");
 		for(int i = 0; i < results.length; i++) {
-			if(results[i] != null) {
-				System.out.println(" " + results[i].getId() + " " + results[i].getName() + " " + results[i].getCurrentBid() + " " + results[i].getOwner());
+			if(results[i] != null) 
+			{
+				if(results[i].getOwner() == null) {
+					results[i].setOwner("No Owner");
+				}
+				System.out.println("    " + results[i].getId() + "    " + results[i].getName() + "    " + results[i].getCurrentBid() + "      " + results[i].getOwner());
 			}
 		}
 		System.out.println("========================================");
@@ -60,7 +65,6 @@ public class SearchResultsState implements Event {
 	@Override
 	public void run() {
 		show();
-		getCommand();
 	}
 	
 	public boolean tryParse(String value) {

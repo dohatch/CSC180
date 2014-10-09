@@ -42,9 +42,8 @@ public class Auction {
 	}
 
 	public void setOwner(String owner) {
-		if (owner == null) {
 			this.owner = owner;
-		}
+			
 	}
 
 	public String getName() {

@@ -26,7 +26,7 @@ public class InMemoryAuctionService implements AuctionService {
 	
 	@Override
 	public Auction[] search(String criteria) {
-		searchedItems = new Auction[10];
+		searchedItems = new Auction[items.length];
 		int j = 0;
 		for(int i = 0; i < items.length; i++) {
 			if(items[i].getName().contains(criteria)) {
